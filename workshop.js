@@ -46,8 +46,23 @@ function every(predicate, theArray) {
 }
 
 function some(predicate, theArray) {
-  
+  if(theArray.length === 0){
+    return false;
+  } else {
+    for(var i=0; i<theArray.length; i++){
+      if(predicate(theArray[i])){
+        return true;
+      }
+    }
+    return false;
+  }
 }
+function isBiggerThan(n){
+  if (n>0){
+    return true;
+  }
+}
+console.log(some(isBiggerThan, [-1,-5,-6,-7,7]));
 
 function indexOf(item, theArray) {
 
