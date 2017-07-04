@@ -71,12 +71,34 @@ function indexOf(item, theArray) {
 }
 
 function findIndex(predicate, theArray) {
-
+  var result = -1;
+  for(var i=0; i<theArray.length; i++){
+    if(predicate(theArray[i])){
+      result = i;
+      return result;
+    } else{
+      result = -1;
+    }
+  }
+  return result;
 }
 
 function first(n, theArray) {
-
+  var newArray = [];
+  if (typeof n === "object"){
+    return n[0];
+  } else if(n > theArray.length){
+    return theArray;
+  } else if (n < 0){
+    return newArray;
+  } else {
+     for(var i=0; i<n;i++){
+      newArray.push(theArray[i]);
+    }
+  }
+  return newArray;
 }
+ 
 
 function last(n, theArray) {
 
