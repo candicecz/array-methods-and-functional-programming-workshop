@@ -57,15 +57,17 @@ function some(predicate, theArray) {
     return false;
   }
 }
-function isBiggerThan(n){
-  if (n>0){
-    return true;
-  }
-}
-console.log(some(isBiggerThan, [-1,-5,-6,-7,7]));
-
 function indexOf(item, theArray) {
-
+  var result = -1;
+  for(var i=0;i<theArray.length; i++){
+    if(theArray[i] === item){
+      result = i;
+      return result;
+    } else {
+      result = -1;
+    }
+  }
+  return result;
 }
 
 function findIndex(predicate, theArray) {
