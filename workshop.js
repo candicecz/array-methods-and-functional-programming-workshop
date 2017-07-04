@@ -2,31 +2,51 @@ function forEach(callback, theArray) {
   for(var i=0; i<theArray.length;i++){
     callback(theArray[i]);
   }
-  /*
-  This is a little hint to get you started ;)
-  
-  for (... theArray.length ...) {
-    ...
-    callback(...)
-    ...
-  }
-  */
 }
 
 function map(mappingFunction, theArray) {
+  var newArray = [];     //the result of applying mapping function to theArray
+  theArray.forEach(function(item){   //for each element of the array apply the function that takes an item(each element of the array)
+    var newItem = mappingFunction(item);    //apply the mapping function to each element of the array and assign it to var newItem
+    newArray.push(newItem);                //push newItem into the result array  newArray
+  });
+  return newArray;                        //return the result
+} 
 
+/* HOW TO TEST
+function double(num){
+  return num * 2;
 }
+map(double, [1,2,3,4,5]);*/
 
 function filter(predicate, theArray) {
-
+  var newArray = [];
+  theArray.forEach(function(item){
+    if(predicate(item) == true){
+      newArray.push(item);
+    }
+  });
+  return newArray;
 }
 
 function every(predicate, theArray) {
-
+  var result = true;
+  if(theArray.length === 0){
+    return true;
+  }
+  else{
+    for(var i=0; i<theArray.length;i++){
+      if(!predicate(theArray[i])){
+        result = false;
+        return result;
+      }
+    }
+      return result;
+  }
 }
 
 function some(predicate, theArray) {
-
+  
 }
 
 function indexOf(item, theArray) {
