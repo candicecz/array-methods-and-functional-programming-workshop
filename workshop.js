@@ -124,23 +124,21 @@ function pluck(property, arrayOfObjects) {
   });
   return newArray;
 }
-var pets = [
-    {id: 33, owner: 'nyancat', name: 'popcorn', species: 'dog'},
-    {id: 46, name: 'purrito', species: 'cat'},
-    {id: 47, name: 'bob', species: 'fish'},
-    {id: 49, owner: 'nyancat', name: 'nacho', species: 'dog'}
-];
-console.log(pluck('id', pets))
 
 function flatten(theArray) {
 
 }
 
-function negate1(predicate) {
 
+function negate1(predicate) {
+  return function(x){
+    return !predicate(x);
+    };
 }
 
+
 function negate2(predicate) {
+  
 
 }
 
