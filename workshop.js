@@ -101,12 +101,36 @@ function first(n, theArray) {
  
 
 function last(n, theArray) {
-
+  var newArray = [];
+  if(typeof n === "object"){
+    return n[n.length-1]
+  } else if(n > theArray.length){
+    return theArray;
+  } else if(n < 0){
+    return newArray;
+  } else {
+    for(var i = 0; i < n; i++){
+      var newNum = theArray.length-1-i;
+      newArray.push(theArray[newNum]);
+    }
+  }
+  return newArray.reverse();
 }
 
 function pluck(property, arrayOfObjects) {
-
+  var newArray = [];
+  arrayOfObjects.forEach(function(obj){
+    newArray.push(obj[property]);
+  });
+  return newArray;
 }
+var pets = [
+    {id: 33, owner: 'nyancat', name: 'popcorn', species: 'dog'},
+    {id: 46, name: 'purrito', species: 'cat'},
+    {id: 47, name: 'bob', species: 'fish'},
+    {id: 49, owner: 'nyancat', name: 'nacho', species: 'dog'}
+];
+console.log(pluck('id', pets))
 
 function flatten(theArray) {
 
